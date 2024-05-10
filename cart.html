@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="script.js"></script>
+    <script src="main.js" defer type="module"></script>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+
+    <div id="cart-items">
+        <!-- Cart items will be displayed here dynamically -->
+    </div>
+
+    <script>
+        // Retrieve cart items from local storage
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Display cart items on the page
+        const cartContainer = document.getElementById("cart-items");
+        cartItems.forEach(item => {
+            const cartItemDiv = document.createElement("div");
+            cartItemDiv.innerHTML = `
+                <div>
+                    <img src="${item.image}" alt="${item.name}" style="max-width: 100px;">
+                    <p>${item.name}</p>
+                    <p>Price: ₹${item.price}</p>
+                    <button onclick="removeFromCart(${item.id})" class="remove-btn">Remove</button>
+                </div>
+            `;
+            cartContainer.appendChild(cartItemDiv);
+        });
+
+        // Function to remove item from cart
+        function removeFromCart(productId) {
+            // Find index of product in cart
+            const index = cartItems.findIndex(item => item.id === productId);
+            if (index !== -1) {
+                // Remove product from cartItems array
+                cartItems.splice(index, 1);
+                // Update cart display
+                displayCart();
+                // Update local storage
+                localStorage.setItem("cart", JSON.stringify(cartItems));
+            }
+        }
+
+        // Function to update cart display
+        function displayCart() {
+            // Clear existing cart items
+            cartContainer.innerHTML = "";
+            // Display updated cart items
+            cartItems.forEach(item => {
+                const cartItemDiv = document.createElement("div");
+                cartItemDiv.innerHTML = `
+                    <div class="item-in-cart">
+                        <img src="${item.image}" alt="${item.name}" style="max-width: 100px;">
+                        <p class="item-name-in-cart">${item.name}</p>
+                        <p class="item-price-in-cart">Price: ₹${item.price}</p>
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})" style="padding: 5px 10px; color: green; font-weight: bold; border: 1.5px solid green; margin-left: 80%;">Remove</button>
+                    </div>
+                `;
+                cartContainer.appendChild(cartItemDiv);
+            });
+        }
+    </script>
+
+
+<div class="bottom-nav-bar">
+    <a href="index.html" class="nav-link" id="home">
+      <img src="Images/home (1).png" alt="home-logo">
+      <span class="nav-name">Home</span></a>
+
+    <a href="#" class="nav-link" id="offer">
+      <img src="Images/offer.png" alt="offer-logo">
+      <span class="nav-name">Offers</span></a>
+
+    <a href="#" class="nav-link" id="shop-by-category-link">
+      <img src="Images/options.png" alt="categories-logo">
+      <span class="nav-name">Categories</span></a>
+
+    <a href="cart.html" class="nav-link active id="orders">
+      <img src="Images/package.png" alt="order-logo">
+      <span class="nav-name">Orders</span></a>
+
+    <a href="#" class="nav-link" id="loginLink">
+      <img src="Images/user.png" alt="user-logo">
+      <span class="nav-name">Account</span>
+  </a>
+  <div class="login-box" id="login">
+      <div class="close-symbol">
+        <a href="#"><img src="Images/close.png" alt="close-logo" id="close" onclick="reload()"></a>
+        <script>
+          function reload()
+          {
+            window.location.href = 'index.html';
+          }
+        </script>
+      </div>
+      <div class="phone-num-field">
+        <div class="country-code-flag">
+          <img src="Images/indian flag.jpeg" alt="">
+          <p>+91</p>
+        </div>
+        <input type="number" placeholder="Enter Your Number...">
+      <div class="send-otp">
+        <button>Send OTP</button>
+      </div>
+      </div>
+      <div class="or-with">
+        <h3>or with</h3>
+        <div class="line1"></div>
+        <div class="line2"></div>
+      </div>
+      <div class="sign-in-options">
+      <div class="google-login" id="login-sign-in">
+        <img src="Images/google-logo.webp" alt="google-logo">
+        <h3>Sign in with Google</h3>
+      </div>
+      <div class="facebook-login" id="login-sign-in-facebook">
+        <img src="Images/facebook.png" alt="facebook-logo">
+        <h3>Sign in with Facebook</h3>
+      </div>
+      <div class="mail-login" id="login-sign-in-mail">
+        <img src="Images/mail-inbox-app.png" alt="mail-logo">
+        <h3>Sign in with Mail</h3>
+      </div>
+      </div>
+  </div>
+  <script src="visibleBox.js"></script>
+
+ 
+</body>
+</hatml>

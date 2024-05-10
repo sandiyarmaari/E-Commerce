@@ -1,0 +1,41 @@
+const products = [
+    {
+        id: 1,
+        name: "Tata Salt",
+        price: 10,
+        image: "Grocery Images/tata salt.jpg"
+    },
+    {
+        id: 2,
+        name: "Ashirvad Atta",
+        price: 100,
+        image: "Grocery Images/ahirvad atta.jpeg"
+    },
+    {
+        id: 3,
+        name: "Kellogs",
+        price: 120,
+        image: "Grocery Images/kellogs.webp"
+    },
+    {
+        id: 4,
+        name: "Corn Flake",
+        price: 200,
+        image: "Grocery Images/kellogs corn flake.webp"
+    },
+    {
+        id: 5,
+        name: "Chocos",
+        price: 10,
+        image: "Grocery Images/chocos.webp"
+    },
+    {
+        id: 6,
+        name: "Comfort",
+        price: 40,
+        image: "Grocery Images/comfort.webp"
+    }
+];
+
+// Store products array in local storage with a specific key
+localStorage.setItem("products", JSON.stringify(products));

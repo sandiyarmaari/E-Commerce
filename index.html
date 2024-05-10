@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer type="module"></script>
+  <script src="script.js"></script>
+  <title>Document</title>
+</head>
+<body>
+    <div class="full-nav-bar">
+      <h1 class="name" id="name">SevenTeen</h1>
+      <img src="Images/search.png" alt="search-logo" class="search-logo">
+        <input type="text" name="search-bar" id="search-bar" placeholder="Search...">
+        
+        <script>
+            window.addEventListener('scroll', function() {
+            var searchBar = document.getElementById('search-bar');
+            var scrollPosition = window.scrollY;
+
+            if (scrollPosition > 0) {
+                searchBar.classList.add('fixed');
+                document.getElementById('name').style.display="none";
+
+            } else {
+                searchBar.classList.remove('fixed');
+                document.getElementById('name').style.display="block";
+
+            }
+        });
+        </script>
+    </div>
+    <div class="bottom-nav-bar">
+        <a href="#" class="nav-link active" id="home">
+          <img src="Images/home (1).png" alt="home-logo">
+          <span class="nav-name">Home</span></a>
+
+        <a href="#" class="nav-link" id="offer">
+          <img src="Images/offer.png" alt="offer-logo">
+          <span class="nav-name">Offers</span></a>
+
+        <a href="#" class="nav-link" id="shop-by-category-link">
+          <img src="Images/options.png" alt="categories-logo">
+          <span class="nav-name">Categories</span></a>
+
+        <a href="cart.html" class="nav-link" id="orders">
+          <img src="Images/package.png" alt="order-logo">
+          <span class="nav-name">Orders</span></a>
+
+        <a href="#" class="nav-link" id="loginLink">
+          <img src="Images/user.png" alt="user-logo">
+          <span class="nav-name">Account</span>
+      </a>
+      <div class="login-box" id="login">
+          <div class="close-symbol">
+            <a href="#"><img src="Images/close.png" alt="close-logo" id="close" onclick="reload()"></a>
+            <script>
+              function reload()
+              {
+                window.location.href = 'index.html';
+              }
+            </script>
+          </div>
+          <div class="phone-num-field">
+            <div class="country-code-flag">
+              <img src="Images/indian flag.jpeg" alt="">
+              <p>+91</p>
+            </div>
+            <input type="number" placeholder="Enter Your Number...">
+          <div class="send-otp">
+            <button>Send OTP</button>
+          </div>
+          </div>
+          <div class="or-with">
+            <h3>or with</h3>
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+          <div class="sign-in-options">
+          <div class="google-login" id="login-sign-in">
+            <img src="Images/google-logo.webp" alt="google-logo">
+            <h3>Sign in with Google</h3>
+          </div>
+          <div class="facebook-login" id="login-sign-in-facebook">
+            <img src="Images/facebook.png" alt="facebook-logo">
+            <h3>Sign in with Facebook</h3>
+          </div>
+          <div class="mail-login" id="login-sign-in-mail">
+            <img src="Images/mail-inbox-app.png" alt="mail-logo">
+            <h3>Sign in with Mail</h3>
+          </div>
+          </div>
+      </div>
+
+      <script src="visibleBox.js"></script>
+    </div>
+
+    <div class="full-body">
+      <div class="slider-container">
+        <div class="slider">
+            <img src="Images/fruits-and-vegetables-design-template-bee863a56fb1ed798cb24f689a152995_screen.jpg" alt="Image 1">
+            <img src="Images/burger.jpeg" alt="Image 2">
+            <img src="Images/make your order.jpg" alt="Image 3">
+        </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+          $(".slider-container img:gt(0)").hide();
+          setInterval(function() {
+              $('.slider img:first-child')
+              .fadeOut()
+              .next()
+              .fadeIn()
+              .end()
+              .appendTo('.slider');
+          }, 3000);
+      });
+      </script>
+      
+        <h2 class="top-pics-title">Top Picks For You</h2>
+
+        <div class="top-pick-boxes-container">
+          <div class="top-pick-boxes" id="topPickBoxes">
+            <div class="top-pick-boxes-box">
+              <div class="item-image">
+                  <img src="Grocery Images/tata salt.jpg" alt="tata-salt">
+              </div>
+              <p class="item-name">Tata Salt</p>
+              <p class="price">&#8377;10</p>
+              <button onclick="addToCart(1)" class="add-to-cart" >ADD</button>
+    </div>
+                  <div class="top-pick-boxes-box">
+              <div class="item-image">
+              <img src="Grocery Images/ahirvad atta.jpeg" alt="atta">
+              </div>
+              <p class="item-name">Ashirvad Atta</p>
+              <p class="price"> &#8377;100</p>
+              <button onclick="addToCart(2)" class="add-to-cart">ADD</button>
+            </div>
+            <div class="top-pick-boxes-box">
+              <div class="item-image">
+                  <img src="Grocery Images/kellogs.webp" alt="kellogs">
+              </div>
+              <p class="item-name">Kellogs</p>
+              <p class="price">&#8377;120</p>
+              <button onclick="addToCart(3)" class="add-to-cart">ADD</button> <!-- Assuming 3 is the productId for Kellogs -->
+          </div>
+          
+            <div class="top-pick-boxes-box">
+              <div class="item-image">
+              <img src="Grocery Images/kellogs corn flake.webp" alt="corn-flake">
+              </div>
+              <p class="item-name">Corn Flake</p>
+              <p class="price"> &#8377;200</p>
+               <button onclick="addToCart(3)" class="add-to-cart">ADD</button>
+            </div>
+            <div class="top-pick-boxes-box">
+              <div class="item-image">
+              <img src="Grocery Images/chocos.webp" alt="chocos">
+              </div>
+              <p class="item-name">Chocos</p>
+              <p class="price"> &#8377;10</p>
+               <button onclick="addToCart(4)" class="add-to-cart">ADD</button>
+            </div>
+            <div class="top-pick-boxes-box">
+              <div class="item-image">
+              <img src="Grocery Images/comfort.webp" alt="comfort">
+              </div>
+              <p class="item-name">Comfort</p>
+              <p class="price"> &#8377;40</p>
+              <button onclick="addToCart(5)" class="add-to-cart">ADD</button>
+            </div>
+          </div>
+          <script src="swipe.js"></script>
+        </div>
+        
+
+        <div class="shop-by-category" id="shop-by-category">
+          <h2>Shop By Category</h2>
+
+          <div class="category-images">
+            <img src="Categories/snacks and munchies.avif" alt="snacks">
+            <img src="Categories/cool drinks.avif" alt="cooldrinks">
+            <img src="Categories/biscuits.avif" alt="biscuits">
+            <img src="Categories/oil and masala.avif" alt="masala">
+            <img src="Categories/sauces.avif" alt="sauces">
+            <img src="Categories/cleaning.avif" alt="cleaning-essentials">
+            <img src="Categories/personal care.avif" alt="personal-care">
+            <img src="Categories/atta.avif" alt="atta">
+            <img src="Categories/home and office.avif" alt="home and office">
+          </div>
+          
+        </div>
+        
+    </div>
+
+    <script src="product.js"></script>
+    <script src="cart.js"></script>
+
+</body>
+</html>
